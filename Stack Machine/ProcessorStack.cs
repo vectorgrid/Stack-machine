@@ -4,25 +4,25 @@ namespace Stack_Machine
 {
     class ProcessorStack
     {
-        private Stack<Int64> stack_memory;
-        private int stack_mem_size;
-        private int top_of_stack;
+        private Stack<UInt64> stack_memory;
+        private UInt64 stack_mem_size;
+        private UInt64 top_of_stack;
 
-        public ProcessorStack(int stack_mem_size)
+        public ProcessorStack(UInt64 stack_mem_size)
         {
-            this.stack_memory = new Stack<Int64>();
+            this.stack_memory = new Stack<UInt64>();
             this.stack_mem_size = stack_mem_size;
-            this.top_of_stack = -1;
+            this.top_of_stack = 0;
         }
 
-        public int Stack_mem_size { get => this.stack_mem_size; }
+        public UInt64 Stack_mem_size { get => this.stack_mem_size; }
 
-        public int Top_of_stack { get => this.top_of_stack; }
+        public UInt64 Top_of_stack { get => this.top_of_stack; }
 
-        public bool Push(Int64 entity)
+        public bool Push(UInt64 entity)
         {
-            Int64 curr_stack_size = this.stack_memory.Count * sizeof(Int64);
-            if (curr_stack_size + sizeof(Int64) > this.Stack_mem_size)
+            UInt64 curr_stack_size = (UInt64 )this.stack_memory.Count * (UInt64)sizeof(UInt64);
+            if (curr_stack_size + sizeof(UInt64) > this.Stack_mem_size)
             {
                 throw new Exception("Processor Stack Out of Memory");
             }
@@ -42,9 +42,9 @@ namespace Stack_Machine
             }
         }
 
-        public Int64 Pop()
+        public UInt64 Pop()
         {
-            if(this.top_of_stack > -1)
+            if(this.top_of_stack > 0)
             {
                 --this.top_of_stack;
                 return this.stack_memory.Pop();
