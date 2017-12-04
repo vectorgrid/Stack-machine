@@ -4,13 +4,13 @@ namespace Stack_Machine
 {
     class ProcessorStack
     {
-        private Stack<UInt64> stack_memory;
+        private Stack<Int64> stack_memory;
         private UInt64 stack_mem_size;
         private Int64 top_of_stack;
 
         public ProcessorStack(UInt64 stack_mem_size)
         {
-            this.stack_memory = new Stack<UInt64>();
+            this.stack_memory = new Stack<Int64>();
             this.stack_mem_size = stack_mem_size;
             this.top_of_stack = -1;
         }
@@ -19,7 +19,7 @@ namespace Stack_Machine
 
         public Int64 Top_of_stack { get => this.top_of_stack; }
 
-        public bool Push(UInt64 entity)
+        public bool Push(Int64 entity)
         {
             UInt64 curr_stack_size = (UInt64 )this.stack_memory.Count * (UInt64)sizeof(UInt64);
             if (curr_stack_size + sizeof(UInt64) > this.Stack_mem_size)
@@ -42,7 +42,7 @@ namespace Stack_Machine
             }
         }
 
-        public UInt64 Pop()
+        public Int64 Pop()
         {
             if(this.top_of_stack > 0)
             {
