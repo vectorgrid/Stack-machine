@@ -6,18 +6,18 @@ namespace Stack_Machine
     {
         private Stack<UInt64> stack_memory;
         private UInt64 stack_mem_size;
-        private UInt64 top_of_stack;
+        private Int64 top_of_stack;
 
         public ProcessorStack(UInt64 stack_mem_size)
         {
             this.stack_memory = new Stack<UInt64>();
             this.stack_mem_size = stack_mem_size;
-            this.top_of_stack = 0;
+            this.top_of_stack = -1;
         }
 
         public UInt64 Stack_mem_size { get => this.stack_mem_size; }
 
-        public UInt64 Top_of_stack { get => this.top_of_stack; }
+        public Int64 Top_of_stack { get => this.top_of_stack; }
 
         public bool Push(UInt64 entity)
         {
